@@ -1,6 +1,6 @@
 # H3K9ac-and-H3K9me3-ChIP-Seq-for-Her2-Positive-cell-lines
 
-# ChIP-seq Data Analysis Pipeline
+# ChIP-seq Data Analysis Pipeline for GEO-GSE85158
 
 This repository provides a complete pipeline for processing and visualizing ChIP-seq data, including:
 
