@@ -9,6 +9,8 @@ This repository provides a complete pipeline for processing and visualizing ChIP
 - **SAM to BAM Conversion**
 - **GC Bias Calculation and Correction**
 - **BAM to BigWig Conversion**
+- **Visualization on IGV**
+- **Coverage Analysis of Promoters**
 - **Heatmap Generation for H3K9Ac and H3K9me3 Marks**
 ---
 
@@ -21,7 +23,9 @@ This repository provides a complete pipeline for processing and visualizing ChIP
     - [GC Bias Calculation](#gc-bias-calculation)
     - [GC Bias Correction](#gc-bias-correction)
 5. [BAM to BigWig Conversion](#5-bam-to-bigwig-conversion)
-6. [Heatmap Generation for H3K9Ac and H3K9me3 Marks](#6-heatmap-generation-for-h3k9ac-and-h3k9me3-marks)
+6. [Visualization on IGV](#6-visualization-on-IGV)
+7. [Coverage Analysis of Promoters](#7-coverage-analysis-of-promoters)
+8. [Heatmap Generation for H3K9Ac and H3K9me3 Marks](#8-heatmap-generation-for-h3k9ac-and-h3k9me3-marks)
 
 --- 
 ## 1. SRA Download
@@ -120,7 +124,28 @@ done
 
 --- 
 
-## 6. Heatmap Generation for H3K9Ac and H3K9me3 Marks
+##6. Visualization on IGV
+
+Sorted BAM files were converted to BigWig format using the bamCoverage tool from Deeptools and loaded into IGV for visualization.
+
+---
+## 7. Coverage Analysis of Promoters
+
+The bedtools map command (-o max) for each region was used to compute the maximum cpm value within +/- 5 kb of the transcription start site (TSS) for each gene.
+
+```bash
+# Analyze coverage over gene promoters
+for FILE_PATH in compare_bam_cpm/*.bg.gz; do
+    FILE="${FILE_PATH##*/}"
+    BASE="${FILE%.bg.gz}"
+    OUT=compare_bam_cpm_1kb_promoter/$BASE.geneList_promoter_5kb_max
+    zcat $FILE_PATH | sort -k1,1 -k2,2n | gzip > compare_bam_cpm/$BASE.sort.bg.gz
+    bedtools map -c 4 -o max -a ../john/gene_list.5k_promoter.bed -b compare_bam_cpm/$BASE.sort.bg.gz | gzip > $OUT.gz
+done
+```
+
+---
+## 8. Heatmap Generation for H3K9Ac and H3K9me3 Marks
 
 R script generates a heatmap visualizing the maximum CPM values across selected genes for H3K9Ac and H3K9me3 histone marks.
 Look at H3K9ac-H3K9me_heatmaps.R file
