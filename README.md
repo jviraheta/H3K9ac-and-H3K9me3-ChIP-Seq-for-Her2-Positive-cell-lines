@@ -123,6 +123,7 @@ done
 ## 6. Heatmap Generation for H3K9Ac and H3K9me3 Marks
 
 R script generates a heatmap visualizing the maximum CPM values across selected genes for H3K9Ac and H3K9me3 histone marks.
+Look at H3K9ac-H3K9me_heatmaps.R file
 
 ---
 
