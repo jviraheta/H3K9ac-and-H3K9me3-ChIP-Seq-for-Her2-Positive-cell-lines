@@ -140,7 +140,7 @@ for FILE_PATH in compare_bam_cpm/*.bg.gz; do
     BASE="${FILE%.bg.gz}"
     OUT=compare_bam_cpm_1kb_promoter/$BASE.geneList_promoter_5kb_max
     zcat $FILE_PATH | sort -k1,1 -k2,2n | gzip > compare_bam_cpm/$BASE.sort.bg.gz
-    bedtools map -c 4 -o max -a ../john/gene_list.5k_promoter.bed -b compare_bam_cpm/$BASE.sort.bg.gz | gzip > $OUT.gz
+    bedtools map -c 4 -o max -a ../gene_list.5k_promoter.bed -b compare_bam_cpm/$BASE.sort.bg.gz | gzip > $OUT.gz
 done
 ```
 
