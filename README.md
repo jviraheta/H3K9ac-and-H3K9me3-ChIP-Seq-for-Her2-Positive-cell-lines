@@ -128,6 +128,13 @@ done
 
 Sorted BAM files were converted to BigWig format using the bamCoverage tool from Deeptools and loaded into IGV for visualization.
 
+I have mapped the levels of H3K9ac over P53 in several breast cancer cell lines using published ChIP-seq data available on GEO (GSE85158). The cell lines examined include the five major breast cancer subtypes including two ER-positive subtypes (Luminal-A and Luminal-B), the HER2-positive subtype, and two triple-negative subtypes (TNBC-Basal and TNBC-ClaudinLow). Additionally, normal-like immortal breast cells were included in the analysis. H3K9ac levels over the TP53 gene in the different breast cancer cell lines and normal-like cells follow a broadly similar pattern with some variations in their magnitude. Regarding the HER-2 positive subtypes, HCC1954 shows relatively high H3K9ac levels, particularly in replicate 1.
+
+Example of vizualtion over P53 promoter for H3K9ac
+
+<img width="1383" alt="Screenshot 2024-10-16 at 11 28 57 PM" src="https://github.com/user-attachments/assets/ef287081-12cf-4d07-8e91-710ceab42a92">
+
+
 ---
 ## 7. Coverage Analysis of Promoters
 
