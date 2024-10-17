@@ -150,7 +150,8 @@ done
 R script generates a heatmap visualizing the maximum CPM values across selected genes for H3K9Ac and H3K9me3 histone marks.
 Look at H3K9ac-H3K9me_heatmaps.R file
 
-[H3K9Ac_H3K9me3.promoter_5kb_max.v4 (1).pdf](https://github.com/user-attachments/files/17405965/H3K9Ac_H3K9me3.promoter_5kb_max.v4.1.pdf)
+<img width="911" alt="Screenshot 2024-10-16 at 11 25 58 PM" src="https://github.com/user-attachments/assets/421c2190-f366-4387-aee5-403eb0f8cdff">
+
 
 
 ---
